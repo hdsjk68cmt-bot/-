@@ -1,1463 +1,758 @@
-
-
-<!DOCTYPE HTML>
-
+<!DOCTYPE html>
 <html lang="ko">
-
-<머리>
-
-<meta charset=>UTF-8">
-
-<meta 이름="viewport" 콘텐츠="width=장치 너비, 초기 스케일=1">
-
-<title>청춘 온</title>
-
-<스타일.>
-
-루트 {
-
- --blue: #087bd2;
-
- --deep: #0756a7;
-
- --sky: #24b8e8;
-
- --pale: #eaf7ff;
-
- --잉크: #17324d;
-
- --음소거됨: #688096;
-
- --line: #dceef9;
-
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Youth On</title>
+<style>
+:root {
+  --blue: #087bd2;
+  --deep: #0756a7;
+  --sky: #24b8e8;
+  --pale: #eaf7ff;
+  --ink: #17324d;
+  --muted: #688096;
+  --line: #dceef9;
 }
-
-* { 박스-sizing: 테두리-박스; }
-
-몸 {
-
- 여백: 0;
-
- 배경: #edf7ff;
-
- 색상: var(--잉크);
-
- 폰트 패밀리: 아리알, 산세리프;
-
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #edf7ff;
+  color: var(--ink);
+  font-family: Arial, sans-serif;
 }
-
-버튼, 입력 { 폰트: 상속; }
-
-버튼 { 커서: 포인터; }
-
-.앱 {
-
- 최대 너비: 520 px;
-
- 최소 높이: 100vh;
-
- 여백: 자동;
-
- 패딩: 16 px 18 px 28 px;
-
- 배경: 선형 gradient(180 deg, #ffff, #f0f9ff);
-
+button, input { font: inherit; }
+button { cursor: pointer; }
+.app {
+  max-width: 520px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 16px 18px 28px;
+  background: linear-gradient(180deg, #fff, #f0f9ff);
 }
-
 .top {
-
   display: flex;
-
   align-items: center;
-
   gap: 10px;
-
   margin-bottom: 8px;
-
 }
-
 .logo {
-
-  width: 190px;
-
-  height: 74px;
-
-  object-fit: contain;
-
-  object-position: left center;
-
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--deep);
+  text-decoration: none;
 }
-
 .back {
-
   border: 0;
-
   background: #e0f3ff;
-
   color: var(--deep);
-
   border-radius: 12px;
-
   padding: 10px 13px;
-
 }
-
 .screen { display: none; padding: 10px 0 24px; }
-
 .screen.active { display: block; }
-
 h1 { font-size: 27px; margin: 12px 0 8px; }
-
 p { color: var(--muted); line-height: 1.6; }
-
 .primary {
-
   width: 100%;
-
   border: 0;
-
   border-radius: 15px;
-
   padding: 15px;
-
   color: white;
-
   font-weight: bold;
-
   background: linear-gradient(100deg, var(--deep), var(--sky));
-
 }
-
 .secondary {
-
   border: 0;
-
   border-radius: 12px;
-
   padding: 11px 14px;
-
   background: #e5f5ff;
-
   color: var(--deep);
-
   font-weight: bold;
-
 }
-
 .cards {
-
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
   gap: 12px;
-
 }
-
 .card {
-
   padding: 16px 13px;
-
   min-height: 128px;
-
   border: 1px solid var(--line);
-
   border-radius: 19px;
-
   background: white;
-
   color: var(--ink);
-
   text-align: left;
-
 }
-
 .card .emoji { display: block; font-size: 30px; margin-bottom: 10px; }
-
 .card strong { display: block; margin-bottom: 6px; }
-
 .card small { color: var(--muted); line-height: 1.5; }
-
 .wide { grid-column: 1 / -1; }
-
 .hero-art {
-
   text-align: center;
-
   padding: 28px 8px;
-
   margin-top: 22px;
-
   border-radius: 25px;
-
   background: linear-gradient(135deg, #d9f2ff, #f1faff);
-
   font-size: 58px;
-
 }
-
 .hero-art p { color: var(--deep); font-size: 16px; font-weight: bold; }
-
 .item {
-
   display: flex;
-
   align-items: flex-start;
-
   gap: 12px;
-
   width: 100%;
-
   padding: 14px;
-
   margin-bottom: 10px;
-
   border: 1px solid var(--line);
-
   border-radius: 17px;
-
   background: white;
-
   color: var(--ink);
-
   text-align: left;
-
 }
-
 .item-emoji { font-size: 29px; }
-
 .item-content { flex: 1; min-width: 0; }
-
 .item-content strong { display: block; margin-bottom: 6px; }
-
 .item-content small { display: block; margin-top: 5px; color: var(--muted); line-height: 1.5; }
-
 .tag {
-
   display: inline-block;
-
   padding: 4px 8px;
-
   margin: 2px 4px 2px 0;
-
   border-radius: 20px;
-
   background: #e5f5ff;
-
   color: var(--deep);
-
   font-size: 11px;
-
 }
-
 .notice {
-
   padding: 13px;
-
   margin: 14px 0;
-
   border-radius: 13px;
-
   background: #e5f5ff;
-
   color: #35647f;
-
   font-size: 12px;
-
   line-height: 1.6;
-
 }
-
 .field-label { display: block; font-size: 13px; font-weight: bold; }
-
 .field, .room-search {
-
   width: 100%;
-
   padding: 13px;
-
   margin: 7px 0 14px;
-
   border: 1px solid #cfe5f4;
-
   border-radius: 11px;
-
   background: white;
-
 }
-
 .chat-layout {
-
   margin: 0 -4px;
-
   background: #f8fbff;
-
   border: 1px solid #e3edf6;
-
   border-radius: 22px;
-
   overflow: hidden;
-
 }
-
 .chat-head {
-
   display: flex;
-
   align-items: center;
-
   gap: 10px;
-
   padding: 13px;
-
   background: white;
-
   border-bottom: 1px solid #e6eef5;
-
 }
-
 .avatar, .chat-avatar {
-
   display: grid;
-
   place-items: center;
-
   flex-shrink: 0;
-
   background: #e1f3ff;
-
   border-radius: 14px;
-
   font-size: 23px;
-
 }
-
 .avatar { width: 43px; height: 43px; }
-
 .chat-head .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
-
 .chat-messages {
-
   height: 340px;
-
   overflow-y: auto;
-
   padding: 15px 12px;
-
   background: linear-gradient(135deg, #cbe5f2, #e1eff5);
-
 }
-
 .day {
-
   text-align: center;
-
   font-size: 11px;
-
   color: #45677b;
-
   margin: 4px auto 15px;
-
   background: #eaf4f8;
-
   border-radius: 15px;
-
   padding: 5px 10px;
-
   width: max-content;
-
 }
-
 .chat-line { display: flex; align-items: flex-start; gap: 7px; margin: 12px 0; }
-
 .chat-line.mine { justify-content: flex-end; }
-
 .chat-avatar { width: 30px; height: 30px; background: white; font-size: 17px; }
-
 .chat-name { font-size: 11px; color: #36566b; margin: 0 0 4px 2px; }
-
 .bubble {
-
   max-width: 76%;
-
   padding: 10px 12px;
-
   background: white;
-
   border-radius: 3px 14px 14px 14px;
-
   font-size: 14px;
-
   line-height: 1.45;
-
   overflow-wrap: anywhere;
-
 }
-
 .mine .bubble { background: #ffe96b; border-radius: 14px 3px 14px 14px; }
-
 .bubble-time { align-self: flex-end; font-size: 10px; color: #45677b; }
-
 .chat-compose {
-
   display: flex;
-
   gap: 7px;
-
   padding: 10px;
-
   background: white;
-
 }
-
 .chat-compose input {
-
   flex: 1;
-
   min-width: 0;
-
   border: 1px solid #dbe7ef;
-
   border-radius: 20px;
-
   padding: 11px 13px;
-
 }
-
 .chat-compose button {
-
   width: 44px;
-
   border: 0;
-
   border-radius: 14px;
-
   background: #ffe96b;
-
 }
-
 .video {
-
   display: grid;
-
   place-items: center;
-
   min-height: 190px;
-
   border-radius: 19px;
-
   margin: 15px 0;
-
   color: white;
-
   font-size: 42px;
-
   background: linear-gradient(135deg, #0756a7, #24b8e8);
-
 }
-
 .video small { display: block; font-size: 13px; margin-top: 8px; }
-
 .empty { text-align: center; padding: 28px; color: var(--muted); }
-
 .toast {
-
   display: none;
-
   position: fixed;
-
   bottom: 20px;
-
   left: 50%;
-
   transform: translateX(-50%);
-
   max-width: 90%;
-
   padding: 13px 17px;
-
   border-radius: 13px;
-
   background: #17324d;
-
   color: white;
-
   z-index: 10;
-
 }
-
 </style>
-
 </head>
-
 <body>
-
 <div class="app">
-
 <header class="top">
-
   <button class="back" id="backButton" onclick="goBack()" hidden>←</button>
-
-  <img class="logo" src="youth-on-logo.png" alt="Youth On 로고">
-
+  <a class="logo" href="#" onclick="navigate('home'); return false;">Youth On 💙</a>
 </header>
-
 <main>
-
 <section class="screen active" id="home">
-
   <h1 style="text-align:center">우리의 즐거움, ON!</h1>
-
   <p style="text-align:center">함께 운동하고, 요리하고, 새로운 친구를 만나봐요.</p>
-
   <button class="primary" onclick="navigate('choose')">참가하기 →</button>
-
   <div class="hero-art">
-
     🧑🏻‍🤝‍🧑🏻
-
     <p>청소년 여러분, 환영해요!</p>
-
     <span style="font-size:15px">함께라서 더 즐거운 Youth On</span>
-
   </div>
-
 </section>
-
 <section class="screen" id="choose">
-
   <h1>어떤 활동을 할까요?</h1>
-
   <p>원하는 방식으로 활동을 찾아보세요.</p>
-
   <div class="cards">
-
     <button class="card" onclick="navigate('offline')">
-
       <span class="emoji">🏃</span><strong>오프라인</strong>
-
       <small>직접 만나 함께 즐겨요.</small>
-
     </button>
-
     <button class="card" onclick="navigate('online')">
-
       <span class="emoji">💻</span><strong>온라인</strong>
-
       <small>채팅과 영상으로 만나요.</small>
-
     </button>
-
   </div>
-
 </section>
-
 <section class="screen" id="offline">
-
   <h1>오프라인 활동</h1>
-
   <p>친구들과 직접 만나 즐겨보세요.</p>
-
   <div class="cards">
-
     <button class="card" onclick="showActivities('sports')">
-
       <span class="emoji">⚽</span><strong>스포츠</strong>
-
       <small>축구, 농구, 배드민턴</small>
-
     </button>
-
     <button class="card" onclick="showActivities('food')">
-
       <span class="emoji">🍜</span><strong>먹거리</strong>
-
       <small>맛집과 디저트 탐방</small>
-
     </button>
-
     <button class="card wide" onclick="showActivities('play')">
-
       <span class="emoji">🎳</span><strong>놀이</strong>
-
       <small>보드게임, 볼링, 방탈출</small>
-
     </button>
-
   </div>
-
 </section>
-
 <section class="screen" id="online">
-
   <h1>온라인 활동</h1>
-
   <p>관심사가 맞는 친구들과 함께해요.</p>
-
   <div class="cards">
-
     <button class="card" onclick="renderRooms();navigate('chatrooms')">
-
       <span class="emoji">💬</span><strong>소모임 채팅방</strong>
-
       <small>방 이름과 참여 인원을 확인해요.</small>
-
     </button>
-
     <button class="card" onclick="navigate('cooking')">
-
       <span class="emoji">👩‍🍳</span><strong>쿠킹 클래스</strong>
-
       <small>요리 수업과 영상</small>
-
     </button>
-
   </div>
-
 </section>
-
 <section class="screen" id="activities">
-
   <h1 id="activityHeading">활동 목록</h1>
-
   <p>인원과 장소를 확인하고 원하는 모임을 선택하세요.</p>
-
   <div id="activityItems"></div>
-
 </section>
-
 <section class="screen" id="apply">
-
   <h1>모임 참가 신청</h1>
-
   <div id="applyInfo" class="notice"></div>
-
   <label class="field-label" for="nickname">참가자 별명</label>
-
   <input class="field" id="nickname" maxlength="20" placeholder="예: 파란하늘">
-
   <label class="field-label" for="date">희망 날짜</label>
-
   <input class="field" id="date" type="date">
-
   <label class="field-label" for="applyMessage">하고 싶은 말 (선택)</label>
-
   <input class="field" id="applyMessage" maxlength="120" placeholder="처음 참가해요!">
-
   <button class="primary" onclick="submitApplication()">신청 내용 저장하기</button>
-
   <div class="notice">현재 신청 내용은 이 브라우저에 저장되는 시제품입니다.</div>
-
 </section>
-
 <section class="screen" id="applications">
-
   <h1>내 신청 내역</h1>
-
   <p>이 기기에서 저장한 신청 내역이에요.</p>
-
   <div id="applicationItems"></div>
-
 </section>
-
 <section class="screen" id="chatrooms">
-
   <h1>소모임 채팅방</h1>
-
   <p>관심 있는 방을 골라 대화를 시작해 보세요.</p>
-
   <input class="room-search" id="roomSearch" placeholder="🔎 채팅방 검색" oninput="renderRooms()">
-
   <div id="chatRoomItems"></div>
-
   <div class="notice">참여 인원은 예시입니다. 다른 사용자와 실시간 채팅하려면 서버 연결이 필요합니다.</div>
-
 </section>
-
 <section class="screen" id="chat">
-
   <div class="chat-layout">
-
     <div class="chat-head">
-
       <div class="avatar" id="chatAvatar">⚽</div>
-
       <div>
-
         <strong id="chatHeading">스포츠 수다방</strong>
-
         <div class="sub" id="chatSub">관심사가 같은 친구들</div>
-
       </div>
-
     </div>
-
     <div class="chat-messages" id="chatMessages"></div>
-
     <form class="chat-compose" onsubmit="sendMessage(event)">
-
       <input id="chatInput" maxlength="250" placeholder="메시지를 입력하세요" autocomplete="off">
-
       <button type="submit" aria-label="메시지 전송">➤</button>
-
     </form>
-
   </div>
-
   <div class="notice">현재 메시지는 이 브라우저 안에서만 저장되며 다른 사용자에게 전송되지 않습니다. 개인정보나 연락처를 공유하지 마세요.</div>
-
 </section>
-
 <section class="screen" id="cooking">
-
   <h1>쿠킹 클래스</h1>
-
   <p>배우고 싶은 요리 분야를 선택하세요.</p>
-
   <div class="cards">
-
     <button class="card" onclick="showClasses('베이킹')"><span class="emoji">🥐</span><strong>베이킹</strong><small>쿠키, 케이크, 빵</small></button>
-
     <button class="card" onclick="showClasses('양식')"><span class="emoji">🍝</span><strong>양식</strong><small>파스타와 샐러드</small></button>
-
     <button class="card" onclick="showClasses('한식')"><span class="emoji">🍚</span><strong>한식</strong><small>친숙한 집밥 요리</small></button>
-
     <button class="card" onclick="showClasses('일식')"><span class="emoji">🍙</span><strong>일식</strong><small>간단한 일본 요리</small></button>
-
   </div>
-
 </section>
-
 <section class="screen" id="classes">
-
   <h1 id="classHeading">클래스 목록</h1>
-
   <p>수업 내용, 인원, 가격을 확인하세요.</p>
-
   <div id="classItems"></div>
-
   <div class="notice">가격과 인원은 시제품 예시입니다.</div>
-
 </section>
-
 <section class="screen" id="lesson">
-
   <div class="video" id="videoPreview">▶<small>영상 클래스 미리보기</small></div>
-
   <h1 id="lessonHeading">쿠킹 클래스</h1>
-
   <div id="lessonInfo" class="notice"></div>
-
   <p id="lessonDescription"></p>
-
   <label class="field-label" for="videoUrl">영상 주소 (선택)</label>
-
   <input class="field" id="videoUrl" placeholder="https://...">
-
   <button class="secondary" style="width:100%;margin-bottom:10px" onclick="playVideo()">영상 열기</button>
-
   <button class="primary" onclick="joinClass()">클래스 가입하기</button>
-
 </section>
-
 <section class="screen" id="myClasses">
-
   <h1>내 쿠킹 클래스</h1>
-
   <p>이 기기에서 가입한 클래스예요.</p>
-
   <div id="myClassItems"></div>
-
 </section>
-
 </main>
-
 </div>
-
 <div class="toast" id="toast" role="status"></div>
-
 <script>
-
 const $ = id => document.getElementById(id);
-
 let pageHistory = ["home"];
-
 let selectedActivity = null;
-
 let selectedClass = null;
-
 let activeRoom = null;
-
 const screens = [...document.querySelectorAll(".screen")];
 
 function readStore(key) {
-
   try {
-
     const value = JSON.parse(localStorage.getItem(key));
-
     return Array.isArray(value) ? value : [];
-
   } catch {
-
     return [];
-
   }
-
 }
 
 function writeStore(key, value) {
-
   try {
-
     localStorage.setItem(key, JSON.stringify(value));
-
   } catch {
-
     toast("브라우저 저장 공간을 사용할 수 없어요.");
-
   }
-
 }
 
 function navigate(id, save = true) {
-
   screens.forEach(s => s.classList.toggle("active", s.id === id));
-
   if (save && pageHistory[pageHistory.length - 1] !== id) pageHistory.push(id);
-
   $("backButton").hidden = id === "home";
-
   window.scrollTo(0, 0);
-
 }
 
 function goBack() {
-
   if (pageHistory.length > 1) pageHistory.pop();
-
   navigate(pageHistory[pageHistory.length - 1], false);
-
 }
 
 const activityData = {
-
   sports: {
-
     title: "스포츠 모임",
-
     items: [
-
       {emoji:"⚽",name:"청소년 축구 모임",people:8,capacity:12,place:"지역 공공 운동장",description:"초보자도 함께 즐기는 친목 축구"},
-
       {emoji:"🏀",name:"농구 친구들",people:6,capacity:10,place:"지역 체육관",description:"패스와 슛을 연습하고 친선 경기를 해요."},
-
       {emoji:"🏸",name:"배드민턴 모임",people:5,capacity:8,place:"지역 실내 체육관",description:"친구들과 배드민턴을 배우고 즐겨요."},
-
       {emoji:"🏃",name:"함께 걷기",people:4,capacity:10,place:"지역 공원",description:"함께 걸으며 대화하는 활동이에요."}
-
     ]
-
   },
-
   food: {
-
     title: "먹거리 모임",
-
     items: [
-
       {emoji:"🍜",name:"맛집 탐방",people:5,capacity:8,place:"지역 중심가",description:"새로운 메뉴를 함께 찾아봐요."},
-
       {emoji:"🥐",name:"빵지순례",people:4,capacity:6,place:"지역 베이커리",description:"다양한 빵과 디저트를 구경해요."}
-
     ]
-
   },
-
   play: {
-
     title: "놀이 모임",
-
     items: [
-
       {emoji:"🎲",name:"보드게임 친구들",people:6,capacity:8,place:"청소년 문화 공간",description:"협력 게임과 전략 게임을 즐겨요."},
-
       {emoji:"🎳",name:"볼링 모임",people:4,capacity:8,place:"지역 볼링장",description:"처음 하는 친구도 함께 즐겨요."}
-
     ]
-
   }
-
 };
 
 function makeItem(emoji, title, details, meta, action) {
-
   const button = document.createElement("button");
-
   button.className = "item";
-
   const icon = document.createElement("span");
-
   icon.className = "item-emoji";
-
   icon.textContent = emoji;
-
   const content = document.createElement("div");
-
   content.className = "item-content";
-
   const strong = document.createElement("strong");
-
   strong.textContent = title;
-
   content.appendChild(strong);
-
   if (meta) {
-
     const tags = document.createElement("div");
-
     meta.forEach(t => {
-
       const span = document.createElement("span");
-
       span.className = "tag";
-
       span.textContent = t;
-
       tags.appendChild(span);
-
     });
-
     content.appendChild(tags);
-
   }
-
   const small = document.createElement("small");
-
   small.textContent = details;
-
   content.appendChild(small);
-
   button.append(icon, content);
-
   button.addEventListener("click", action);
-
   return button;
-
 }
 
 function showActivities(category) {
-
   const data = activityData[category];
-
   $("activityHeading").textContent = data.title;
-
   const list = $("activityItems");
-
   list.replaceChildren();
-
   data.items.forEach(item => {
-
     list.appendChild(makeItem(
-
       item.emoji, item.name, item.description,
-
       [`👥 ${item.people}/${item.capacity}명`, `📍 ${item.place}`],
-
       () => applyActivity(item)
-
     ));
-
   });
-
   navigate("activities");
-
 }
 
 function applyActivity(item) {
-
   selectedActivity = item;
-
   $("applyInfo").textContent =
-
     `${item.emoji} ${item.name} · ${item.place} · 현재 ${item.people}/${item.capacity}명`;
-
   $("nickname").value = "";
-
   $("date").value = "";
-
   $("applyMessage").value = "";
-
   navigate("apply");
-
 }
 
 function submitApplication() {
-
   const nickname = $("nickname").value.trim();
-
   if (!nickname) {
-
     toast("참가자 별명을 입력해 주세요.");
-
     $("nickname").focus();
-
     return;
-
   }
-
   const apps = readStore("yo_applications");
-
   apps.unshift({
-
     id: Date.now(),
-
     name: selectedActivity.name,
-
     emoji: selectedActivity.emoji,
-
     nickname,
-
     date: $("date").value,
-
     message: $("applyMessage").value.trim(),
-
     place: selectedActivity.place
-
   });
-
   writeStore("yo_applications", apps);
-
   toast("신청 내용을 이 기기에 저장했어요.");
-
   renderApplications();
-
+  navigate("applications");
 }
 
 function renderApplications() {
-
   const list = $("applicationItems");
-
+  if (!list) return;
   list.replaceChildren();
-
   const apps = readStore("yo_applications");
-
   if (!apps.length) {
-
     list.innerHTML = '<div class="empty">아직 저장된 신청 내역이 없어요.</div>';
-
     return;
-
   }
-
   apps.forEach(app => {
-
     list.appendChild(makeItem(
-
       app.emoji, app.name,
-
       `${app.nickname} · ${app.date || "날짜 미정"} · ${app.place}`,
-
       [app.message || "신청 저장됨"],
-
       () => toast("이 신청은 현재 브라우저에 저장되어 있어요.")
-
     ));
-
   });
-
 }
 
 const rooms = [
-
   {id:"sports",emoji:"⚽",name:"스포츠 수다방",people:18,topic:"축구·농구·운동 이야기"},
-
   {id:"cooking",emoji:"🍳",name:"요리 초보 모임",people:12,topic:"레시피와 요리 질문"},
-
   {id:"hobby",emoji:"🎨",name:"취미 친구 찾기",people:24,topic:"그림·음악·새로운 취미"},
-
   {id:"study",emoji:"📚",name:"공부 친구방",people:15,topic:"공부 팁과 서로 응원하기"}
-
 ];
 
 function renderRooms() {
-
   const list = $("chatRoomItems");
-
   if (!list) return;
-
   list.replaceChildren();
-
   const query = ($("roomSearch")?.value || "").trim().toLowerCase();
-
   const filtered = rooms.filter(r =>
-
     (r.name + " " + r.topic).toLowerCase().includes(query)
-
   );
-
   if (!filtered.length) {
-
     list.innerHTML = '<div class="empty">검색 결과가 없어요.</div>';
-
     return;
-
   }
-
   filtered.forEach(room => {
-
     list.appendChild(makeItem(
-
       room.emoji, room.name, room.topic,
-
       [`👥 ${room.people}명 참여`],
-
       () => openChat(room)
-
     ));
-
   });
-
 }
 
 function openChat(room) {
-
   activeRoom = room;
-
   $("chatHeading").textContent = room.name;
-
   $("chatAvatar").textContent = room.emoji;
-
   $("chatSub").textContent = `${room.people}명 · ${room.topic}`;
-
   renderMessages();
-
   navigate("chat");
-
 }
 
 function renderMessages() {
-
   const box = $("chatMessages");
-
   box.replaceChildren();
-
   const day = document.createElement("div");
-
   day.className = "day";
-
   day.textContent = "오늘";
-
   box.appendChild(day);
-
   const messages = readStore("yo_chat_" + (activeRoom?.id || "none"));
-
   if (!messages.length) {
-
     const line = document.createElement("div");
-
     line.className = "chat-line";
-
     const av = document.createElement("div");
-
     av.className = "chat-avatar";
-
     av.textContent = activeRoom?.emoji || "💬";
-
     const wrap = document.createElement("div");
-
     const name = document.createElement("div");
-
     name.className = "chat-name";
-
     name.textContent = activeRoom?.name || "채팅방";
-
     const bubble = document.createElement("div");
-
     bubble.className = "bubble";
-
     bubble.textContent = "안녕하세요! 서로 존중하며 이야기해요 😊";
-
     wrap.append(name, bubble);
-
     line.append(av, wrap);
-
     box.appendChild(line);
-
   } else {
-
     messages.forEach(m => {
-
       const line = document.createElement("div");
-
       line.className = "chat-line" + (m.mine ? " mine" : "");
-
       if (!m.mine) {
-
         const av = document.createElement("div");
-
         av.className = "chat-avatar";
-
         av.textContent = activeRoom?.emoji || "💬";
-
         line.appendChild(av);
-
       }
-
       const bubble = document.createElement("div");
-
       bubble.className = "bubble";
-
       bubble.textContent = m.text;
-
       const time = document.createElement("span");
-
       time.className = "bubble-time";
-
       time.textContent = m.time;
-
       line.append(bubble, time);
-
       box.appendChild(line);
-
     });
-
   }
-
   box.scrollTop = box.scrollHeight;
-
 }
 
 function sendMessage(event) {
-
   event.preventDefault();
-
   const input = $("chatInput");
-
   const text = input.value.trim();
-
   if (!text || !activeRoom) return;
-
   const messages = readStore("yo_chat_" + activeRoom.id);
-
   messages.push({
-
     text,
-
     mine: true,
-
     time: new Date().toLocaleTimeString("ko-KR", {
-
       hour: "2-digit", minute: "2-digit"
-
     })
-
   });
-
   writeStore("yo_chat_" + activeRoom.id, messages);
-
   input.value = "";
-
   renderMessages();
-
 }
 
 const cookingData = {
-
   "베이킹": [
-
     {emoji:"🍪",name:"초보 쿠키 만들기",people:8,capacity:10,price:5000,description:"쿠키 반죽과 굽기의 기초를 배워요."},
-
     {emoji:"🎂",name:"미니 케이크 꾸미기",people:6,capacity:8,price:8000,description:"크림과 토핑으로 케이크를 꾸며요."},
-
     {emoji:"🍞",name:"폭신한 빵 만들기",people:5,capacity:10,price:7000,description:"반죽과 발효의 기초를 배워요."}
-
   ],
-
   "양식": [
-
     {emoji:"🍝",name:"초보 파스타 클래스",people:7,capacity:10,price:6000,description:"간단한 파스타 조리법을 배워요."}
-
   ],
-
   "한식": [
-
     {emoji:"🍚",name:"한식 요리 기초",people:6,capacity:10,price:5000,description:"쉽고 친숙한 한식 요리를 배워요."}
-
- ],
-
- "일식": [
-
- {emo:"🍙",이름:"주먹밥 만들기",사람:5,용량:8,가격:4000,desc설명:"다양한 재료로 주먹밥을 만들어요"}
-
+  ],
+  "일식": [
+    {emoji:"🍙",name:"주먹밥 만들기",people:5,capacity:8,price:4000,description:"다양한 재료로 주먹밥을 만들어요."}
   ]
+};
 
+function showClasses(category) {
+  $("classHeading").textContent = category + " 클래스";
+  const list = $("classItems");
+  list.replaceChildren();
+  cookingData[category].forEach(item => {
+    list.appendChild(makeItem(
+      item.emoji, item.name, item.description,
+      [`👥 ${item.people}/${item.capacity}명`, `💰 ${item.price.toLocaleString("ko-KR")}원`],
+      () => openLesson(item)
+    ));
+  });
+  navigate("classes");
 }
 
-기능. 쇼클래스(카테고리) {
-
- $("클래스")헤딩").텍스트 내용 = 카테고리 + "클래스";
-
- const list = $("class"항목";
-
- list.replaceChildren();
-
- 요리 데이터[카테고리].각각에 대해 (항목 => {
-
- list.appendChild(makeItem())
-
- 항목.emo지, item.name , 항목.desc 설명,
-
- ['👥 {항목}.people}/${item.capacity}명', '💰 ${item.price.toLocaleString("ko-KR")}원',
-
- () => 열린 수업(항목)
-
- ));
-
- });
-
- ("classes 탐색";
-
+function openLesson(item) {
+  selectedClass = item;
+  $("lessonHeading").textContent = item.emoji + " " + item.name;
+  $("lessonDescription").textContent = item.description;
+  $("lessonInfo").textContent =
+    `참여 ${item.people}/${item.capacity}명 · 예시 가격 ${item.price.toLocaleString("ko-KR")}원`;
+  $("videoUrl").value = "";
+  $("videoPreview").innerHTML = "▶<small>영상 클래스 미리보기</small>";
+  navigate("lesson");
 }
 
-기능. 오픈 레슨(항목) {
-
- 선택된 클래스 = 항목;
-
- $("lesson")헤딩").textContent = item.emoji + " + item.name ;
-
- ("강습 설명").텍스트 내용 = 항목.desc 설명;
-
- ("레슨인포").텍스트 내용 =
-
- '참여 ${항목}.people}/${item.capacity}명 · 예시 가격 ${item.price.toLocaleString("ko-KR")}원';
-
- $("videoUrl")값 = ";
-
- ("비디오 미리보기").내부HTML = "▶<small>영상 클래스 미리보기</small>";
-
- ("lesson 탐색";
-
-}
-
-기능. 비디오 재생() {
-
- const url = $("videoUrl").value.trim();
-
- 만약 (!url) {
-
- toast("먼저 영상 주소를 입력해 주세요.");
-
- 반환;
-
+function playVideo() {
+  const url = $("videoUrl").value.trim();
+  if (!url) {
+    toast("먼저 영상 주소를 입력해 주세요.");
+    return;
   }
-
-  해라 {
-
- constparsed = 새 URL(url);
-
- 만약 (!["http:", "https:"]].include(parsed.protocol))는 새로운 오류()를 발생시킵니다;
-
- window.open(파싱됨).href, "_blank", "노오프너, 노레퍼러";
-
-  } 또 만나 {
-
- toast("올바른 http 또는 https 영상 주소를 입력해 주세요.");
-
+  try {
+    const parsed = new URL(url);
+    if (!["http:", "https:"].includes(parsed.protocol)) throw new Error();
+    window.open(parsed.href, "_blank", "noopener,noreferrer");
+  } catch {
+    toast("올바른 http 또는 https 영상 주소를 입력해 주세요.");
   }
-
 }
 
-기능. joinClass() {
-
- (!selectedClass)가 반환되는 경우;
-
- 컨스펙트 절약하다 = readStore("yo_classes");
-
- 만약 (saved.some(c => c.name === selectedClass.name ) {
-
- toast("이미 내 클래스에 추가되어 있어요.");
-
- 반환;
-
+function joinClass() {
+  if (!selectedClass) return;
+  const saved = readStore("yo_classes");
+  if (saved.some(c => c.name === selectedClass.name)) {
+    toast("이미 내 클래스에 추가되어 있어요.");
+    return;
   }
-
- save.unshift ({
-
- 이름: selectedClass.name ,
-
- 이모티콘: 선택된 클래스.emoji,
-
- 설명: selectedClass.description,
-
- 가격: 선택된 클래스.가격
-
- });
-
- writeStore("yo_classes", 저장됨);
-
- renderMyClasses();
-
- toast("내 클래스에 저장했어요.");
-
+  saved.unshift({
+    name: selectedClass.name,
+    emoji: selectedClass.emoji,
+    description: selectedClass.description,
+    price: selectedClass.price
+  });
+  writeStore("yo_classes", saved);
+  renderMyClasses();
+  toast("내 클래스에 저장했어요.");
+  navigate("myClasses");
 }
 
-기능. renderMyClasses() {
-
- 컨스펙트 목록. = ("myClassItems");
-
- list.replaceChildren();
-
- 컨스펙트 절약하다 = readStore("yo_classes");
-
- 만약 (!저장됨.length) {
-
- 리스트.innerHTML = '<div class="empty">아직 가입한 클래스가 없어요.</div>';
-
- 반환;
-
+function renderMyClasses() {
+  const list = $("myClassItems");
+  if (!list) return;
+  list.replaceChildren();
+  const saved = readStore("yo_classes");
+  if (!saved.length) {
+    list.innerHTML = '<div class="empty">아직 가입한 클래스가 없어요.</div>';
+    return;
   }
-
- 저장됨(c => {
-
- list.appendChild(makeItem())
-
- c. emo지, c.name , c. desc 설명,
-
- ['예시 가격 ${c.price.toLocaleString("ko-KR")}원'],
-
- () => toast("내 클래스에 저장된 수업이에요.")
-
- ));
-
- });
-
+  saved.forEach(c => {
+    list.appendChild(makeItem(
+      c.emoji, c.name, c.description,
+      [`예시 가격 ${c.price.toLocaleString("ko-KR")}원`],
+      () => toast("내 클래스에 저장된 수업이에요.")
+    ));
+  });
 }
 
-토스트타이머;
-
-기능. 토스트(메세지) {
-
- constel = $("toast");
-
- etl.textContent = 메시지;
-
- el.style.display = "차단";
-
- 클리어타임아웃(토스트타이머);
-
- 토스트타이머 = setTimeout((() => el.style.display = "none", 2800);
-
+let toastTimer;
+function toast(message) {
+  const el = $("toast");
+  el.textContent = message;
+  el.style.display = "block";
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.style.display = "none", 2800);
 }
 
-렌더룸();
-
-렌더 애플리케이션();
-
+renderRooms();
+renderApplications();
 renderMyClasses();
-
-</대본>
-
-</몸>
-
-</HTML>
+</script>
+</body>
+</html>
